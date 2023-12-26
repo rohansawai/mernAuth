@@ -1,9 +1,13 @@
+import Header from "./components/Header";
+import { Outlet } from "react-router-dom";
+
 const App = () => {
-  return ( 
+  return (
     <div>
-      <h1>MERN Auth</h1>
+      <Header />
+      <Outlet />{" "}
     </div>
-   );
-}
- 
+  );
+};
+
 export default App;
