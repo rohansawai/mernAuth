@@ -14,13 +14,16 @@ import store from "./store.ts";
 import { Provider } from "react-redux";
 import HomeScreen from "./screens/HomeScreen.tsx";
 import RegisterScreen from "./screens/RegisterScreen.tsx";
-
+import PrivateRoute from "./components/PrivateRoute.tsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="/" element={<HomeScreen />}></Route>
       <Route path="/login" element={<LoginScreen />}></Route>
       <Route path="/register" element={<RegisterScreen />}></Route>
+      <Route path="" element={<PrivateRoute />}>
+        <Route path="/profile" element={<PrivateRoute />} />
+      </Route>
     </Route>
   )
 );
