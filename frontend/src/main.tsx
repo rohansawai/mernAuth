@@ -3,22 +3,31 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import LoginScreen from "./screens/LoginScreen.tsx";
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-  RouterProvider, 
+  RouterProvider,
 } from "react-router-dom";
+import store from "./store.ts";
+import { Provider } from "react-redux";
 import HomeScreen from "./screens/HomeScreen.tsx";
+import RegisterScreen from "./screens/RegisterScreen.tsx";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="/" element={<HomeScreen />}></Route>
-    </Route> 
+      <Route path="/login" element={<LoginScreen />}></Route>
+      <Route path="/register" element={<RegisterScreen />}></Route>
+    </Route>
   )
 );
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />{" "}
-  </React.StrictMode>
+  <Provider store={store}>
+    <React.StrictMode>
+      <RouterProvider router={router} />{" "}
+    </React.StrictMode>
+  </Provider>
 );
