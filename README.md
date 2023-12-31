@@ -22,3 +22,7 @@ Before running the project, make sure you have the following installed:
 
 - Node.js and npm
 - MongoDB
+
+## Run this project
+
+- To run this project locally use `npm run dev` in the root directory to run the frontend and backend concurrently.
